@@ -1,0 +1,15 @@
+The info from the party table:
+
+case_id = the unique identifier of the collision report
+
+party_age = age of party at time of collision (int)
+            998 - unknown
+
+party_sobriety = sobriety of party in collision
+                A - Had not been drinking
+                B - Had been drinking, under influence
+                C - Had been drinking, not under influence
+                D - Had been drinking, impairment unknown
+                G - Impairment unknown
+                H - Not applicable
+

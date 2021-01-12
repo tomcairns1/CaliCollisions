@@ -21,7 +21,7 @@ import matplotlib
 
 df = pd.read_csv('/Users/tomcairns/Desktop/Random Projects/CaliCollisions/CaliCollisions/parties.csv', low_memory=False)
 
-print(head(df))
+print(df.head())
 
 
 ###################
