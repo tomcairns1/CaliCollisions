@@ -23,6 +23,8 @@ df = pd.read_csv('/Users/tomcairns/Desktop/Random Projects/CaliCollisions/CaliCo
 
 print(df.head())
 
+# Want to just pull out the columns that we're interested in
+
 
 ###################
 # Export Clean Data
