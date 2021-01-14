@@ -24,10 +24,12 @@ partiesDf = pd.read_csv('/Users/tomcairns/Desktop/Random Projects/CaliCollisions
 collisionsDf = pd.read_csv('/Users/tomcairns/Desktop/Random Projects/CaliCollisions/CaliCollisions/collisions.csv', low_memory=False)
 
 # Pull out the columns from collisionsDf that we're interested in
+cleanDf1 = pd.DataFrame()
 cleanDf1['case_id'] = collisionsDf['case_id']
 cleanDf1['date'] = collisionsDf['collision_date']
 
 # Pull out the columns from partiesDf that we're interested in
+cleanDf2 = pd.DataFrame()
 cleanDf2['case_id'] = partiesDf['case_id']
 cleanDf2['party_age'] = partiesDf['party_age']
 cleanDf2['party_sex'] = partiesDf['party_sex']
