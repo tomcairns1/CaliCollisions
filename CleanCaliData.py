@@ -15,15 +15,38 @@ import pandas as pd
 import matplotlib
 
 
-##########################################
-# Read CSV into a DataFrame and clean data
-##########################################
+##############################
+# Read CSVs into one DataFrame
+##############################
 
-df = pd.read_csv('/Users/tomcairns/Desktop/Random Projects/CaliCollisions/CaliCollisions/parties.csv', low_memory=False)
+# Import CSV files into dataframes
+partiesDf = pd.read_csv('/Users/tomcairns/Desktop/Random Projects/CaliCollisions/CaliCollisions/parties.csv', low_memory=False)
+collisionsDf = pd.read_csv('/Users/tomcairns/Desktop/Random Projects/CaliCollisions/CaliCollisions/collisions.csv', low_memory=False)
 
-print(df.head())
+# Pull out the columns from collisionsDf that we're interested in
+cleanDf1['case_id'] = collisionsDf['case_id']
+cleanDf1['date'] = collisionsDf['collision_date']
 
-# Want to just pull out the columns that we're interested in
+# Pull out the columns from partiesDf that we're interested in
+cleanDf2['case_id'] = partiesDf['case_id']
+cleanDf2['party_age'] = partiesDf['party_age']
+cleanDf2['party_sex'] = partiesDf['party_sex']
+cleanDf2['party_sobriety'] = partiesDf['party_sobriety']
+
+# Merge cleanDf1 and cleanDf2
+cleanDf = pd.merge(cleanDf1, cleanDf2, on='case_id', sort=False) # sort=F makes it faster and also doesn't reorder the data
+# useful for when we want to look at the date breakdown
+
+
+#############
+# Clean Data
+#############
+
+# Remove any rows where party_age = 998 since that means unknown and thus useless info
+
+
+# Remove any rows where party_sobriety != 'B'; that is the code for someone who had been drinking and is under the influence
+
 
 
 ###################
