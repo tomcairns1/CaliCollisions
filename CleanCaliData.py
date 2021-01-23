@@ -14,24 +14,17 @@ import pandas as pd
 ##############################
 
 # Import CSV files into dataframes
-print('begin')
 partiesDf = pd.read_csv('parties.csv', usecols=['case_id', 'party_age', 'party_sex', 'party_sobriety'])
-print('Parties table read')
-collisionsDf = pd.read_csv('collisions.csv', usecols=['case_id', 'collision_date'])
-print('Collisions table read')
-print('Data imported')
+collisionsDf = pd.read_csv('collisions.csv', usecols=['case_id', 'collision_date']))
 
 # Merge partiesDf and collisionsDf
 cleanDf = pd.merge(partiesDf, collisionsDf, on='case_id', sort=False) # sort=F makes it faster
-print('Data merged')
-print(cleanDf.head)
 
 #######################
 # Clean and Export Data
 #######################
 
 totalLength = len(cleanDf.index)
-print('Total Length is: ', totalLength)
 
 # Remove any rows where party_sobriety is not B; B is under the influence
 cleanDf.drop(cleanDf[cleanDf['party_sobriety'] != 'B'].index, inplace=True)
@@ -40,13 +33,10 @@ cleanDf.drop(cleanDf[cleanDf['party_sobriety'] != 'B'].index, inplace=True)
 cleanDf = cleanDf[cleanDf['party_age'].notna()]
 cleanDf = cleanDf[cleanDf['party_sex'].notna()]
 
-print(cleanDf.head)
-
 ###################
 # Export Clean Data
 ###################
 
 # Write the cleanDf into a new CSV file
 cleanDf.to_csv('clean_data.csv')
-print('Done')
 
