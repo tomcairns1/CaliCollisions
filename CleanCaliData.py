@@ -1,5 +1,5 @@
 #!/bin/usr/env python3
-# CaliDriver.py
+# CleanCaliData.py
 # This program is to clean the data from the parties and collisions table and to
 # export it into a csv file
 
