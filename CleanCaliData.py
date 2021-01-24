@@ -15,7 +15,7 @@ import pandas as pd
 
 # Import CSV files into dataframes
 partiesDf = pd.read_csv('parties.csv', usecols=['case_id', 'party_age', 'party_sex', 'party_sobriety'])
-collisionsDf = pd.read_csv('collisions.csv', usecols=['case_id', 'collision_date']))
+collisionsDf = pd.read_csv('collisions.csv', usecols=['case_id', 'collision_date'])
 
 # Merge partiesDf and collisionsDf
 cleanDf = pd.merge(partiesDf, collisionsDf, on='case_id', sort=False) # sort=F makes it faster
