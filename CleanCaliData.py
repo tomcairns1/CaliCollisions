@@ -24,8 +24,6 @@ cleanDf = pd.merge(partiesDf, collisionsDf, on='case_id', sort=False) # sort=F m
 # Clean and Export Data
 #######################
 
-totalLength = len(cleanDf.index)
-
 # Remove any rows where party_sobriety is not B; B is under the influence
 cleanDf.drop(cleanDf[cleanDf['party_sobriety'] != 'B'].index, inplace=True)
 
