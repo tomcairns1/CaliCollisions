@@ -8,6 +8,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import datetime
 import matplotlib.dates as mdates
+from scipy import stats
 
 
 #############
@@ -16,21 +17,15 @@ import matplotlib.dates as mdates
 
 # Read the CSV file into a dataframe
 df = pd.read_csv('clean_data.csv')
-print('Read clean_data.csv')
 
 # Make a new column for the years
 df['Year'] = pd.DatetimeIndex(df['collision_date']).year
-print('Created new column')
-print(df.head)
 
 # Count the number of drunk driving collisions each year
 year_df = df['Year'].value_counts()
-print('Counted the number of drunk driving collisions')
 
 # Convert to a dictionary
 collision_dict = year_df.to_dict()
-print('Converted to dictionary')
-print(collision_dict)
 
 
 ##############
@@ -52,5 +47,13 @@ plt.show()
 # Statistical Analysis
 ######################
 
-# Then it's a matter of running stats to check significance. Going to have to think about
-# which test to run
+# Split the data into lists of pre and post uber (founded in 2009, in Cali in 2010)
+pre_uber = list(filter(lambda elem: elem[0] < 2010, collision_dict.items()))
+pre_uber = [i[1] for i in pre_uber]
+post_uber = list(filter(lambda elem: elem[0] in range(2010, 2020), collision_dict.items()))
+post_uber = [i[1] for i in post_uber]
+
+# Run a t-test on the data
+stats = stats.ttest_ind(pre_uber, post_uber)
+print(f'The t-statistic is: {stats.statistic}')
+print(f'The p-value is: {stats.pvalue}')
