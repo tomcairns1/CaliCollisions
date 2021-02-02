@@ -44,7 +44,7 @@ ax.set_xticks(x_values)
 ax.set_xticklabels(ax.get_xticks(), rotation = 70)
 ax.set_ylabel('Drunk Driving Collisions')
 ax.set_xlabel('Year')
-plt.axvline(x=2009.5, color='red', label='Founding of Uber')
+plt.axvline(x=2010.5, color='red', label='Founding of Uber')
 plt.title('Drunk driving collisions in California per year')
 
 # Display chart
@@ -57,9 +57,9 @@ plt.show()
 ######################
 
 # Split the data into lists of pre and post uber (founded in 2009, in Cali in 2010)
-pre_uber = list(filter(lambda elem: elem[0] < 2010, collision_dict.items()))
+pre_uber = list(filter(lambda elem: elem[0] < 2011, collision_dict.items()))
 pre_uber = [i[1] for i in pre_uber]
-post_uber = list(filter(lambda elem: elem[0] in range(2010, 2020), collision_dict.items()))
+post_uber = list(filter(lambda elem: elem[0] in range(2011, 2020), collision_dict.items()))
 post_uber = [i[1] for i in post_uber]
 
 # Run a t-test on the data
