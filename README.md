@@ -16,7 +16,7 @@ The second file, Cali_driver.py is used to take the clean data and create a bar 
 
 From the bar chart we can see a steady increase in the number of drunk driving collisions before 2008, followed by a decrease in 2009. There was a slight increase in the number of drunk driving collisions following 2014 before dropping in 2020, likely due to the role of the pandemic.
 
-After running a two-sided t-test on the data, a significant difference in the number of drunk driving collisions between 2001 and 2010 and 2011 and 2019 was found. The p-value was found to be 0.006, less than the alpha value of 0.05. This indicates that the number of drunk driving collisions decreased after 2010, which correlates to when the ride-sharing app, Uber, was founded and popularized in California. 
+After running a two-sided t-test on the data, a significant difference in the number of drunk driving collisions between 2001 and 2010 and 2011 and 2019 was found. The p-value was found to be 0.006, less than the alpha value of 0.05. This indicates that the number of drunk driving collisions decreased after 2010, which is around when the ride-sharing app, Uber, was founded and popularized in California. It is unlikely that this result is found by random chance.
 
 ## Discussion:
 
